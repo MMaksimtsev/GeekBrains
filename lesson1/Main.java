@@ -3,7 +3,7 @@ package ru.geekbrains.lesson1;
 import java.util.Scanner;
 
 public class Main {
-    private static final int MIN_VALUE = 10;
+    private static final int MIN_VALUE = 1;
     private static final int MAX_Value= 20;
     public static void main(String[] args) {
         byte valueByte = 100;
