@@ -1,11 +1,13 @@
 package ru.geekbrains.lesson4;
 
+import com.sun.glass.ui.Size;
+
 import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
     public static char[][] map;
-    public static final int SIZE = 3;
+    public static final int SIZE = 5;
     public static final int DOTS_TO_WIN = 3;
     public static final char DOT_EMPTY = '*';
     public static final char DOT_X = 'X';
@@ -78,6 +80,7 @@ public class Main {
     }
 
     public static void aiTurn() {
+        System.out.println("ai turn");
         Random random = new Random();
         int x,y;
         do {
@@ -95,16 +98,66 @@ public class Main {
     }
 
     public static boolean checkWin(char symb) {
-        if(map[0][0] == symb && map[0][1] == symb && map[0][2] == symb) return true;
-        if(map[1][0] == symb && map[1][1] == symb && map[1][2] == symb) return true;
-        if(map[2][0] == symb && map[2][1] == symb && map[2][2] == symb) return true;
-        if(map[0][0] == symb && map[1][0] == symb && map[2][0] == symb) return true;
-        if(map[0][1] == symb && map[1][1] == symb && map[2][1] == symb) return true;
-        if(map[0][2] == symb && map[1][2] == symb && map[2][2] == symb) return true;
-        if(map[0][0] == symb && map[1][1] == symb && map[2][2] == symb) return true;
-        if(map[2][0] == symb && map[1][1] == symb && map[0][2] == symb) return true;
+        int countWindDots = 0;
+
+        for (int i = 0, j = 0; i < SIZE || j < SIZE; i++, j++) {
+            countWindDots = 0;
+            for (int k = i; k < SIZE; k++) {
+                for (int l = j; l < SIZE; l++) {
+                    if (map[k][l] == symb) {
+                        countWindDots += 1;
+                        if (countWindDots == DOTS_TO_WIN) return true;
+                    } else {
+                        countWindDots = 0;
+                    }
+                }
+            }
+        }
+
+//        for (int i = 0, j = 0; i < SIZE || j < SIZE ; i++, j++) {
+//            if (map[i][j] == symb) {
+//                countWindDots += 1;
+//                if (countWindDots == DOTS_TO_WIN) return true;
+//            }
+//            else {
+//                countWindDots = 0;
+//            }
+//        }
+        countWindDots = 0;
+        for (int i = 0, j = SIZE - 1; i < SIZE || j >= 0 ; i++, j--) {
+            if (map[i][j] == symb) {
+                countWindDots += 1;
+                if (countWindDots == DOTS_TO_WIN) return true;
+            }
+            else {
+                countWindDots = 0;
+            }
+        }
+        for (int i = 0; i < SIZE; i++) {
+            countWindDots = 0;
+            for (int j = 0; j < SIZE; j++) {
+                if (map[i][j] == symb) {
+                    countWindDots += 1;
+                    if (countWindDots == DOTS_TO_WIN) return true;
+                } else {
+                    countWindDots = 0;
+                }
+            }
+        }
+        for (int i = 0; i < SIZE; i++) {
+            countWindDots = 0;
+            for (int j = 0; j < SIZE; j++) {
+                if (map[j][i] == symb) {
+                    countWindDots += 1;
+                    if (countWindDots == DOTS_TO_WIN) return true;
+                } else {
+                    countWindDots = 0;
+                }
+            }
+        }
         return false;
     }
+
     public static boolean isMapFull() {
         for (int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {
