@@ -98,60 +98,106 @@ public class Main {
     }
 
     public static boolean checkWin(char symb) {
-        int countWindDots = 0;
+        int countWinDots;
 
+        for (int i = 0; i < SIZE; i++) {
+            countWinDots = 0;
+            for (int k = 0; k < SIZE - i; k++) {
+                for (int l = k + i; l < SIZE - i; ) {
+                    if (map[k][l] == symb) {
+                        countWinDots += 1;
+                        if (countWinDots == DOTS_TO_WIN) return true;
+                    } else {
+                        countWinDots = 0;
+                    }
+                    break;
+                }
+            }
+        }
+        for (int i = 0; i < SIZE; i++) {
+            countWinDots = 0;
+            for (int k = 0; k < SIZE - i; k++) {
+                for (int l = k + i; l < SIZE - i; ) {
+                    if (map[l][k] == symb) {
+                        countWinDots += 1;
+                        if (countWinDots == DOTS_TO_WIN) return true;
+                    } else {
+                        countWinDots = 0;
+                    }
+                    break;
+                }
+            }
+        }
+        for (int i = 0; i < SIZE; i++) {
+            countWinDots = 0;
+            for (int k = 0; k < SIZE - i; k++) {
+                for (int l = SIZE - k - i - 1; l >= 0; ) {
+                    if (map[k][l] == symb) {
+                        countWinDots += 1;
+                        if (countWinDots == DOTS_TO_WIN) return true;
+                    } else {
+                        countWinDots = 0;
+                    }
+                    break;
+                }
+            }
+        }
+        for (int i = 0; i < SIZE; i++) {
+            countWinDots = 0;
+            for (int k = 0; k < SIZE - i; k++) {
+                for (int l = SIZE - k - i- 1; l >= 0; ) {
+                    if (map[l][k] == symb) {
+                        countWinDots += 1;
+                        if (countWinDots == DOTS_TO_WIN) return true;
+                    } else {
+                        countWinDots = 0;
+                    }
+                    break;
+                }
+            }
+        }
         for (int i = 0, j = 0; i < SIZE || j < SIZE; i++, j++) {
-            countWindDots = 0;
+            countWinDots = 0;
             for (int k = i; k < SIZE; k++) {
                 for (int l = j; l < SIZE; l++) {
                     if (map[k][l] == symb) {
-                        countWindDots += 1;
-                        if (countWindDots == DOTS_TO_WIN) return true;
+                        countWinDots += 1;
+                        if (countWinDots == DOTS_TO_WIN) return true;
                     } else {
-                        countWindDots = 0;
+                        countWinDots = 0;
                     }
                 }
             }
         }
-
-//        for (int i = 0, j = 0; i < SIZE || j < SIZE ; i++, j++) {
-//            if (map[i][j] == symb) {
-//                countWindDots += 1;
-//                if (countWindDots == DOTS_TO_WIN) return true;
-//            }
-//            else {
-//                countWindDots = 0;
-//            }
-//        }
-        countWindDots = 0;
+        countWinDots = 0;
         for (int i = 0, j = SIZE - 1; i < SIZE || j >= 0 ; i++, j--) {
             if (map[i][j] == symb) {
-                countWindDots += 1;
-                if (countWindDots == DOTS_TO_WIN) return true;
+                countWinDots += 1;
+                if (countWinDots == DOTS_TO_WIN) return true;
             }
             else {
-                countWindDots = 0;
+                countWinDots = 0;
             }
         }
         for (int i = 0; i < SIZE; i++) {
-            countWindDots = 0;
+            countWinDots = 0;
             for (int j = 0; j < SIZE; j++) {
                 if (map[i][j] == symb) {
-                    countWindDots += 1;
-                    if (countWindDots == DOTS_TO_WIN) return true;
+                    countWinDots += 1;
+                    if (countWinDots == DOTS_TO_WIN) return true;
                 } else {
-                    countWindDots = 0;
+                    countWinDots = 0;
                 }
             }
         }
         for (int i = 0; i < SIZE; i++) {
-            countWindDots = 0;
+            countWinDots = 0;
             for (int j = 0; j < SIZE; j++) {
                 if (map[j][i] == symb) {
-                    countWindDots += 1;
-                    if (countWindDots == DOTS_TO_WIN) return true;
+                    countWinDots += 1;
+                    if (countWinDots == DOTS_TO_WIN) return true;
                 } else {
-                    countWindDots = 0;
+                    countWinDots = 0;
                 }
             }
         }
