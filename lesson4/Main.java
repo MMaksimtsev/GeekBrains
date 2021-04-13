@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Main {
     public static char[][] map;
-    public static final int SIZE = 50;
+    public static final int SIZE = 5;
     public static final int DOTS_TO_WIN = 3;
     public static final char DOT_EMPTY = '*';
     public static final char DOT_X = 'X';
