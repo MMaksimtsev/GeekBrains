@@ -1,8 +1,8 @@
 package lesson6;
 
 public class Cat extends Animals {
-    static int countCat = 0;
-    private static int MAX_RUN_DISTANCE = 500;
+    public static int countCat = 0;
+    private final int MAX_RUN_DISTANCE = 500;
 
 
     Cat(String name, int runDistance, int swimDistance) {

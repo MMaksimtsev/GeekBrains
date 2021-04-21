@@ -2,9 +2,9 @@ package lesson6;
 
 public class Animals {
 
-    String name;
-    int runDistance;
-    int swimDistance;
+    protected String name;
+    protected int runDistance;
+    protected int swimDistance;
     static int countAnimals = 0;
 
     Animals(String name, int runDistance, int swimDistance) {
@@ -14,10 +14,10 @@ public class Animals {
     }
 
     void run(String name, int runDistance) {
-        System.out.println(name + "Пробежал" + runDistance);
+        System.out.println(name + " Пробежал " + runDistance + " м.");
     }
 
     void swim(String name, int swimDistance) {
-        System.out.println(name + "Проплыл" + swimDistance);
+        System.out.println(name + " Проплыл " + swimDistance + " м.");
     }
 }
