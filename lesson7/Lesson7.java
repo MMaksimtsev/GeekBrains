@@ -26,11 +26,20 @@ public class Lesson7 {
             catAppetite = console.nextInt();
             cat[i] = new Cat(catName, catAppetite, false);
         }
-        for (int i = 0; i < cat.length; i++) {
-            cat[i].eat(plate);
+
+        console.nextLine();
+
+        for (Cat value : cat) {
             plate.info();
-            String catSatiety = (cat[i].isSatiety()) ? "Cat full load" : "cat stomach is empty";
-            System.out.println("Cat name = " + cat[i].getName() + " " + " Satiety = " +  catSatiety);
+            System.out.println("Do you want increase food in plate for little cats, PRESS - Y");
+            while (console.nextLine().equals("Y")) {
+                System.out.println("enter amount of food");
+                plate.setFood(console.nextInt());
+                plate.info();
+            }
+            value.eat(plate);
+            String catSatiety = (value.isSatiety()) ? "Cat full load" : "cat stomach is empty";
+            System.out.println("Cat name = " + value.getName() + " " + " Satiety = " + catSatiety);
         }
         console.close();
     }
