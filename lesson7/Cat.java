@@ -23,11 +23,4 @@ public class Cat {
         return name;
     }
 
-    public void setAppetite(int appetite) {
-        this.appetite = appetite;
-    }
-
-    public void setSatiety(boolean satiety) {
-        this.satiety = satiety;
-    }
 }
