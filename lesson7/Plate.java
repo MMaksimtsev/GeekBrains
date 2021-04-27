@@ -6,11 +6,21 @@ public class Plate {
         public Plate(int food) {
             this.food = food;
         }
-        public void decreaseFood(int n) {
-            food -= n;
+        public boolean decreaseFood(int n) {
+            if (food >= n) {
+                food -= n;
+                return true;
+            }
+            else {
+                System.out.println("Not enough food for cat");
+            }
+        return false;
         }
         public void info() {
             System.out.println("plate: " + food);
         }
 
+    public void setFood(int food) {
+        this.food = food;
+    }
 }
