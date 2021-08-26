@@ -2,13 +2,10 @@ package lesson8;
 
 public class Person implements Skills {
 
-    public Person(String name, String type, int maxDistance, int maxHeight) {
+    public Person(String name, int maxDistance, int maxHeight) {
         this.name = name;
-        this.type = type;
         this.maxDistance = maxDistance;
         this.maxHeight = maxHeight;
-        this.fatigue = true;
-
     }
 
     public String getName() {
@@ -16,17 +13,26 @@ public class Person implements Skills {
     }
 
     private String name;
-    private String type;
     private int maxDistance;
     private int maxHeight;
-    private boolean fatigue;
 
-    public void jump(Obstacle obstacle){
 
+    public boolean jump(Obstacle obstacle){
+        if (this.maxHeight > obstacle.getValue()) {
+            System.out.println(this.name + " перепрыгнул " + obstacle.getObstacleName() + " высотой " + obstacle.getValue());
+            return true;
+        }
+        System.out.println(this.name + " не перепрыгнул " + obstacle.getObstacleName() + " высоту " + obstacle.getValue());
+        return false;
     }
 
-    public void run(Treadmill treadmill){
-
+    public boolean run(Obstacle obstacle){
+        if (this.maxDistance > obstacle.getValue()) {
+            System.out.println(this.name + " пробежал " + obstacle.getObstacleName() + " длинной " + obstacle.getValue());
+            return true;
+        }
+        System.out.println(this.name + " не пробежал " + obstacle.getObstacleName() + " длинной " + obstacle.getValue());
+        return false;
     }
 
 

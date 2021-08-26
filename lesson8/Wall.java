@@ -7,6 +7,8 @@ public class Wall extends Obstacle{
 
     public Wall(String obstacleName, int value){
         super(obstacleName, value);
+        this.obstacleName = obstacleName;
+        this.value = value;
     }
     public String getObstacleName() {
         return obstacleName;

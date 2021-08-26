@@ -1,6 +1,6 @@
 package lesson8;
 
 public interface Running {
-    public void run(Treadmill treadmill);
+    boolean run(Obstacle obstacle);
 
 }
