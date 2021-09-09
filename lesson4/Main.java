@@ -1,6 +1,6 @@
 package ru.geekbrains.lesson4;
 
-import com.sun.glass.ui.Size;
+
 
 import java.util.Random;
 import java.util.Scanner;
